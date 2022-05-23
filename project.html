@@ -55,14 +55,12 @@
     <script type="text/javascript">
         // 初始化图表标签
         var A_data = [
-            [7822, 7659, 7337, 7155, 6891, 6330, 6235, 6106,
-                6222, 6034, 5927, 5748, 5874, 6423, 6604, 6603, 6801,
-                6589, 6829, 6352, 6266, 5833, 5665, 5086, 5021, 4389,
-                3552, 3157, 2588, 2068, 1088],
-            [7638, 7415, 7631, 7275, 7334, 6909, 6723, 6572,
-                6549, 6622, 6703, 6429, 6270, 6232, 6254, 6354, 5864,
-                5966, 5431, 5451, 5354, 5322, 5038, 4611, 4132, 4044,
-                4204, 4049, 3931, 3811, 3623]
+        [7768, 7750, 7763, 7768, 7546, 7079, 7113, 7198, 7196, 7172, 7183,
+       7186, 7738, 8193, 8622, 8891, 9000, 9274, 9434, 9570, 9581, 9364,
+       9105, 9304, 9339, 8958, 8994, 8584, 8793, 8531, 8694],
+       [7642, 7663, 7713, 7756, 7826, 7761, 7671, 7507, 7695, 7709, 7946,
+       8160, 7994, 8049, 8372, 8304, 8342, 8412, 8272, 8858, 8571, 8637,
+       8509, 8158, 8025, 7686, 7481, 7240, 7679, 7628, 7974]
         ]
 
         /**
@@ -72,10 +70,13 @@
         */
         var A_Str = ''
         var config = ['3A', 'gfp']
-        var total = [10468, 10579]
-        var min = [5748, 6232]
-        var argmin = [11, 13]
-        var ratio = [1.821, 1.697]
+        var total = [12609, 12229]
+        var min = [7079, 7240]
+        var max = [9581, 8858]
+        var argmin = [5, 27]
+        var argmax = [20, 19]
+        var max_ratio = [  1.35, 1.22]
+        var total_ratio = [1.78, 1.68]
         A_data.forEach((e, index) => {
             A_Str += `<div style="display: flex;    margin: 10px;">
                         <label style="width: 100px;">${config[index]}细胞</label>
@@ -85,8 +86,10 @@
                         <label id="A_label_${config[index]}" style="width: 150px;margin: 10px 0px;">第0帧</label>
                         <label id="A_value_${config[index]}" style="width: 150px;margin: 10px 0px;">面积</label>
                         <label  style="width: 150px;margin: 10px 0px;">总面积:${total[index]}</label>
-                        <label  style="width: 150px;margin: 10px 0px;">前16帧最小面积为:${min[index]},在第${argmin[index]}帧</label>
-                        <label  style="width: 150px;margin: 10px 0px;">比率为：${ratio[index]}</label>
+                        <label  style="width: 150px;margin: 10px 0px;">最小面积为:${min[index]},在第${argmin[index]}帧</label>
+                        <label  style="width: 150px;margin: 10px 0px;">最大面积为:${max[index]},在第${argmax[index]}帧</label>
+                        <label  style="width: 150px;margin: 10px 0px;">max/min比率为：${max_ratio[index]}</label>
+                        <label  style="width: 150px;margin: 10px 0px;">total/min比率为：${total_ratio[index]}</label>
                         </div>
                         <div id="A_chart_${config[index]}" style="width:800px;height:400px;"></div>
                     </div>`
